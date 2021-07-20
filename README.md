@@ -19,6 +19,11 @@ Then:
 mkdir databases
 ```
 
+Build the docker container:
+```
+docker build -t scan0 .
+```
+
 Finally:
 ```
 chmod +x docker_run.sh
