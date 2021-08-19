@@ -17,19 +17,26 @@ unzip codeql-linux64.zip
 Then:
 ```
 mkdir databases
+mkdir output
 ```
 
 Build the docker container:
 ```
+cd create-database
 docker build -t scan0 .
+cd ..
+cd analyze-database
+docker build -t scan1 .
 ```
 
 Finally:
 ```
-chmod +x docker_run.sh
-./docker_run.sh
+chmod +x create-database/docker_run.sh
+chmod +x analyze-database/docker_run.sh
+chmod +x run_all.sh
+./run_all.sh
 ```
 
-Once it's complete, you can see the database in the ./databases directory.
+Once it's complete, you can see the database in the ./databases directory and the sarif file in the output directory
 You will have to delete the resulting database for subsequent runs as they use the same name.
 
